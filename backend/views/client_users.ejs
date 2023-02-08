@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OAuth | History</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<%- include('partials/client_header'); -%>
+<div class="container">
+    <div class="card w-100">
+        <h2>Users</h2>
+        <table cellspacing="0">
+            <thead>
+            <th style="width: 20%;">Time</th>
+            <th style="width: 30%;">Name</th>
+            <th style="width: 30%;">E-mail</th>
+            <th style="width: 10%;">Status</th>
+            <th style="width: 10%;">Action</th>
+            </thead>
+            <tbody id="data">
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include('partials/footer') -%>
+<script src="/js/main.js"></script>
+<script type="text/javascript">
+    const message = "<%= message %>"
+    if (message)
+        showSnackbar(message);
+
+    const revoke = async (id) => {
+        if (confirm("Are you sure you want to revoke this token?")) {
+            try {
+                const {body} = await request("/api/v1/token/revoke?_id=" + id);
+                showSnackbar(body.message);
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } catch (e) {
+                console.error(e);
+                showSnackbar(e.message);
+            }
+        }
+    }
+
+    const response = JSON.parse('<%- data %>')
+    response.forEach(user => {
+        document.getElementById("data").innerHTML +=
+            `
+                <td style="width: 20%;">${new Date(user.updated_at).toLocaleString()}</td>
+                <td style="width: 30%;">${user.name}</td>
+                <td style="width: 30%;">${user.email}</td>
+                <td style="width: 10%;">${user.status}</td>
+                <td style="width: 10%;"><button class="btn-outline" onclick="revoke('${user.id}')">Revoke</button></td>
+            `;
+    })
+</script>
+</body>
+</html>

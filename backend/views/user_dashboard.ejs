@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/css/style.css" rel="stylesheet"/>
+    <title>OAuth | User</title>
+</head>
+<body>
+<%- include('partials/user_header'); -%>
+<div class="container">
+    <div class="card w-100">
+        <h2>Logged In Websites</h2>
+        <table cellspacing="0">
+            <thead>
+            <th style="width: 25%;">Time</th>
+            <th style="width: 25%;">Website</th>
+            <th style="width: 25%;">Status</th>
+            <th style="width: 25%;">Actions</th>
+            </thead>
+            <tbody id="data">
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include('partials/footer') -%>
+<script src="/js/main.js"></script>
+<script type="text/javascript">
+    const message = "<%= message %>"
+    if (message)
+        showSnackbar(message);
+
+    const revoke = async (id) => {
+        if (confirm("You will have to log in again. Are you sure you want to revoke this token?")) {
+            try {
+                const {body} = await request("/api/v1/token/revoke?_id=" + id);
+                showSnackbar(body.message);
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } catch (e) {
+                console.error(e);
+                showSnackbar(e.message);
+            }
+        }
+    }
+
+    const response = JSON.parse('<%- data %>')
+    console.log(response)
+    response.forEach(token => {
+        document.getElementById("data").innerHTML +=
+            `
+                <td style="width: 20%;">${new Date(token.updated_at).toLocaleString()}</td>
+                <td style="width: 40%;">${token.client}</td>
+                <td style="width: 20%;">${token.status}</td>
+                <td style="width: 20%;"><button onclick="revoke('${token.id}')" class='btn-outline'>Revoke</button> </td>
+            `
+
+    })
+</script>
+</body>
+</html>

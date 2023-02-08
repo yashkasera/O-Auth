@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/css/style.css" rel="stylesheet"/>
+    <title>OAuth | Home</title>
+</head>
+<body>
+<%- include('partials/client_header') -%>
+<div class="container">
+    <div class="column">
+        <div class="column">
+            <div class="row">
+                <a href="/client/credentials" class="card clickable">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.6665 34.6667C10.6665 29.6384 10.6665 27.1243 12.2286 25.5621C13.7907 24 16.3049 24 21.3332 24H42.6665C47.6948 24 50.2089 24 51.771 25.5621C53.3332 27.1243 53.3332 29.6384 53.3332 34.6667V40C53.3332 47.5424 53.3332 51.3136 50.99 53.6568C48.6468 56 44.8756 56 37.3332 56H26.6665C19.124 56 15.3528 56 13.0097 53.6568C10.6665 51.3136 10.6665 47.5424 10.6665 40V34.6667Z" stroke="#001937"/>
+                        <path d="M42.6668 21.3333V18.6667C42.6668 12.7756 37.8911 8 32.0002 8C26.1091 8 21.3335 12.7756 21.3335 18.6667V21.3333" stroke="#001937" stroke-linecap="round"/>
+                        <path d="M31.9998 45.3333C34.9454 45.3333 37.3332 42.9455 37.3332 40C37.3332 37.0545 34.9454 34.6667 31.9998 34.6667C29.0543 34.6667 26.6665 37.0545 26.6665 40C26.6665 42.9455 29.0543 45.3333 31.9998 45.3333Z" fill="#001937"/>
+                    </svg>
+                    <p>Client Credentials</p>
+                </a>
+                <a href="/client/users" class="card clickable">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M52.6063 54.5256C51.3908 51.1235 48.7125 48.1172 44.9868 45.973C41.261 43.8289 36.696 42.6667 31.9998 42.6667C27.3036 42.6667 22.7387 43.8289 19.0129 45.973C15.2872 48.1172 12.6089 51.1234 11.3934 54.5256" stroke="#001937" stroke-linecap="round"/>
+                        <circle cx="32.0002" cy="21.3334" r="10.6667" stroke="#001937" stroke-linecap="round"/>
+                    </svg>
+                    <p>Users</p>
+                </a>
+            </div>
+            <div class="row">
+                <a href="/documentation" class="card clickable">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 17.3333V49.3333" stroke="#001937" stroke-linecap="round"/>
+                        <path d="M54.6665 17.3333V49.3333" stroke="#001937" stroke-linecap="round"/>
+                        <path d="M9.3335 17.3333V49.3333" stroke="#001937" stroke-linecap="round"/>
+                        <path d="M54.6667 49.3333C54.6667 49.3333 52 44 42.6667 44C33.3333 44 32 49.3333 32 49.3333" stroke="#001937" stroke-linecap="round"/>
+                        <path d="M9.33333 49.3333C9.33333 49.3333 12 44 21.3333 44C30.6667 44 32 49.3333 32 49.3333" stroke="#001937" stroke-linecap="round"/>
+                        <path d="M54.6667 17.3333C54.6667 17.3333 52 12 42.6667 12C33.3333 12 32 17.3333 32 17.3333" stroke="#001937" stroke-linecap="round"/>
+                        <path d="M9.33333 17.3333C9.33333 17.3333 12 12 21.3333 12C30.6667 12 32 17.3333 32 17.3333" stroke="#001937" stroke-linecap="round"/>
+                    </svg>
+                    <p>Developer
+                        Documentation</p>
+                </a>
+                <a href="/client/account" class="card clickable">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.41518 33.9445C5.88647 32.9941 5.62212 32.5189 5.62212 32C5.62212 31.4812 5.88647 31.006 6.41518 30.0555L11.816 20.3467L17.5237 10.815C18.0824 9.88193 18.3618 9.41539 18.8111 9.15597C19.2605 8.89654 19.8042 8.88787 20.8917 8.87053L32.0002 8.69335L43.1087 8.87053C44.1961 8.88787 44.7399 8.89654 45.1892 9.15596C45.6385 9.41538 45.9179 9.88193 46.4766 10.815L52.1843 20.3467L57.5851 30.0555C58.1139 31.006 58.3782 31.4812 58.3782 32C58.3782 32.5189 58.1139 32.9941 57.5851 33.9445L52.1843 43.6534L46.4766 53.185C45.9179 54.1181 45.6385 54.5847 45.1892 54.8441C44.7399 55.1035 44.1961 55.1122 43.1087 55.1295L32.0002 55.3067L20.8917 55.1295C19.8042 55.1122 19.2605 55.1035 18.8111 54.8441C18.3618 54.5847 18.0824 54.1181 17.5237 53.185L11.816 43.6534L6.41518 33.9445Z" stroke="#001937"/>
+                        <circle cx="32" cy="32" r="8" stroke="#001937"/>
+                    </svg>
+                    <p>Manage Account</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

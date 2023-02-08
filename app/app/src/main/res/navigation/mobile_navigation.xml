@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.yashkasera.oauth.ui.history.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.yashkasera.oauth.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_list" />
+    <fragment
+        android:id="@+id/navigation_websites"
+        android:name="com.yashkasera.oauth.ui.website.WebsiteFragment"
+        android:label="Websites"
+        tools:layout="@layout/fragment_website" />
+</navigation>

@@ -1,0 +1,103 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+    id("kotlin-kapt")
+    id("com.google.gms.google-services")
+    id("androidx.navigation.safeargs.kotlin")
+}
+
+def majorVersion = 1
+def minorVersion = 0
+def patchVersion = 0
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.yashkasera.oauth"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug{
+            versionNameSuffix "_Debug"
+            debuggable true
+        }
+        release {
+            versionNameSuffix "_Release"
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding {
+            enabled = true
+        }
+    }
+    flavorDimensions "version"
+    productFlavors {
+        dev {
+            buildConfigField "String", "BASE_URL", "\"https://26ad-112-79-164-45.in.ngrok.io\""
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "oauth-dev${majorVersion}.${minorVersion}.${patchVersion}.apk"
+                }
+            }
+        }
+        prod {
+            buildConfigField "String", "BASE_URL", "\"https://oauth.herokuapp.com\""
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "oauth-release${majorVersion}.${minorVersion}.${patchVersion}.apk"
+                }
+            }
+        }
+    }
+    namespace 'com.yashkasera.oauth'
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    //firebase
+    implementation("com.google.firebase:firebase-messaging-ktx:23.1.0")
+    implementation("com.google.firebase:firebase-messaging:23.1.0")
+
+    //lifecycle
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+
+    //retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+    implementation("com.localebro:okhttpprofiler:1.0.8")
+
+    //navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
+
+    //qr code
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+}

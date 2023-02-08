@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/css/style.css" rel="stylesheet"/>
+    <title>OAuth | Home</title>
+</head>
+<body>
+<%- include('partials/header') -%>
+<div class="container">
+    <div class="column">
+        <div class="card mw-40">
+            <h2>Login</h2>
+            <form action="login" method="post">
+                <div class="space-between">
+                    <h4 style="width: 100%">I am a</h4>
+                    <div class="space-around">
+                        <div>
+                            <input type="radio" id="user" name="user_type" value="user" checked>
+                            <label for="user">User</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="client" name="user_type" value="client">
+                            <label for="client">Client</label><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Username</label>
+                    <input type="email" name="email" id="email" placeholder="johndoe@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="******">
+                </div>
+                <div class="forgot-password">
+                    <a href="forgot">Forgot Password?</a>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Login</button>
+                </div>
+                <div class="sign-up">
+                    <p>Not a user? <a>Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer') -%>
+<script src="/js/main.js"></script>
+<script type="text/javascript">
+    const message = "<%= message %>"
+    if (message)
+        showSnackbar(message);
+</script>
+</body>
+</html>

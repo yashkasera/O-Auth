@@ -1,0 +1,42 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.OAuth" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/ivory</item>
+        <item name="colorSecondaryVariant">@color/ivory</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/purple_200</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@drawable/bg_gradient</item>
+        <item name="cornerRadius">@dimen/corner_radius</item>
+        <item name="fontFamily">@font/dm_sans</item>
+        <item name="android:fontFamily">@font/dm_sans</item>
+    </style>
+
+    <style name="Theme.OAuth.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopEnd">4dp</item>
+        <item name="boxCornerRadiusTopStart">4dp</item>
+        <item name="boxCornerRadiusBottomEnd">4dp</item>
+        <item name="boxCornerRadiusBottomStart">4dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="Theme.OAuth.Button">
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:layout_marginBottom">@dimen/margin_small</item>
+        <item name="cornerRadius">4dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:paddingTop">@dimen/margin_extra_small</item>
+        <item name="android:paddingBottom">@dimen/margin_extra_small</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>
