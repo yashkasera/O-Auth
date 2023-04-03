@@ -1,6 +1,5 @@
 require('dotenv').config();
 require('./util/connectMongoose');
-require('./util/firebase');
 
 const express = require('express');
 const app = express();

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const User = require("./user");
-const {sendPushNotification} = require("../util/firebase");
 
 const prompt = new mongoose.Schema({
     prompt: {
